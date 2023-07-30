@@ -1,0 +1,2 @@
+- linters and formatters
+- git hooks
