@@ -1,2 +1,3 @@
-- linters and formatters
+- linters
 - git hooks
+- Generating types from a GraphQL schema

@@ -1,0 +1,8 @@
+type Query {
+    actors: [Actor]
+}
+
+type Actor {
+    name: String
+}
+

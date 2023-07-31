@@ -4,6 +4,7 @@
 
 - Fast and isolated type checking process using tsc with key flags to improve performance and to be used only when needed
 
+- Formatters using prettier
 ## Links
 
 ### https://tsh.io/blog/how-to-speed-up-your-typescript-project/
