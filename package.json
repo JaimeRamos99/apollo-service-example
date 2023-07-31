@@ -9,11 +9,12 @@
     "format:write": "npx prettier . --write",
     "format:check": "npx prettier . --check",
     "types-check": "tsc --skipLibCheck --noEmit --watch",
-    "watch-compile": "swc src -w --out-dir build",
+    "watch-compile": "concurrently \"npm run codegen\" \"swc src -w --out-dir build\"",
     "watch-dev": "nodemon --watch \"build/**/*\" -e js ./build/index.js",
     "build": "swc src -d dist",
-    "start": "NODE_ENV=production node dist/index.js",
-    "codegen": "graphql-codegen --config codegen.ts"
+    "codegen": "graphql-codegen --config codegen.ts",
+    "start": "NODE_ENV=production node dist/index.js"
+    
   },
   "keywords": [],
   "author": "",
