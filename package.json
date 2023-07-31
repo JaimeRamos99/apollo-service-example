@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "dev": "concurrently \"npm run watch-compile\" \"npm run watch-dev\"",
-    "dev-strict": "concurrently \"types-check -w\" \"npm run watch-compile\" \"npm run watch-dev\"",
-    "types-check": "tsc --pretty --skipLibCheck --noEmit",
+    "dev-strict": "concurrently \"npm run types-check\" \"npm run watch-compile\" \"npm run watch-dev\"",
+    "format:write": "npx prettier . --write",
+    "format:check": "npx prettier . --check",
+    "types-check": "tsc --skipLibCheck --noEmit --watch",
     "watch-compile": "swc src -w --out-dir build",
     "watch-dev": "nodemon --watch \"build/**/*\" -e js ./build/index.js",
     "build": "swc src -d dist",
@@ -17,15 +19,18 @@
   "license": "ISC",
   "dependencies": {
     "@apollo/server": "^4.9.0",
-    "graphql": "^16.7.1"
+    "graphql": "^16.7.1",
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "@swc/cli": "^0.1.62",
     "@swc/core": "^1.3.72",
+    "@types/lodash": "^4.14.196",
     "@types/node": "^20.4.5",
     "chokidar": "^3.5.3",
     "concurrently": "^8.2.0",
     "nodemon": "^3.0.1",
+    "prettier": "3.0.0",
     "typescript": "^5.1.6"
   }
 }

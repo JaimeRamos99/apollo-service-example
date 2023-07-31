@@ -1,6 +1,6 @@
-import { typeDefs as Testing } from './testing';
-import { typeDefs as Test } from './test';
-export const typeDefs = `
-   ${Testing}
-   ${Test}
+import { typeDefs as Booking } from "./books";
+import { typeDefs as Actor } from "./actors";
+export const typeDefs = `#graphql
+   ${Booking}
+   ${Actor}
 `;
