@@ -1,5 +1,5 @@
 type Query {
-    actors: [Actor]
+    actor(actorId: ID!): Actor
 }
 
 type Actor {

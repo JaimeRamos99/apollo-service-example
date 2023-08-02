@@ -1,5 +1,5 @@
 export interface Context {
-    dataSources: {
+    user: {
       brand_id: string;
     };
 }

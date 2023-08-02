@@ -11,7 +11,9 @@ const books: Book[] = [
 
 const resolvers: Resolvers = {
   Query: {
-    books: () => books,
+    books: (_, args, context) => {
+      return books;
+    },
   },
 };
 export { resolvers };

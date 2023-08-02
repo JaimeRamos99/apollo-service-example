@@ -11,7 +11,9 @@ const actors: Actor[] = [
 
 const resolvers: Resolvers = {
   Query: {
-    actors: (_, __, context) => actors,
+    actor: (_, { actorId }, context) => {
+      return actors[0];
+    },
   },
 };
 export { resolvers };
