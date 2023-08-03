@@ -1,19 +1,18 @@
-import { Resolvers, Actor } from "../../__generated__/resolvers-types";
+import { Resolvers } from "../../__generated__/resolvers-types";
+import ActorService from '../../domain/actor/service'
 
-const actors: Actor[] = [
-  {
-    name: "Jaime",
-  },
-  {
-    name: "Josue",
-  },
-];
+const actorService = new ActorService();
 
 const resolvers: Resolvers = {
   Query: {
-    actor: (_, { actorId }, context) => {
-      return actors[0];
+    actorById: async (_, { actorId }, context) => {
+      return await actorService.findById(actorId);
     },
+
+    actors: async (_, __, context) => {
+      return await actorService.findAll();
+    }
   },
 };
+
 export { resolvers };

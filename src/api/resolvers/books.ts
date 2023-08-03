@@ -1,19 +1,16 @@
-import { Resolvers, Book } from "../../__generated__/resolvers-types";
+import { Resolvers } from "../../__generated__/resolvers-types";
+import BookService from '../../domain/book/service';
 
-const books: Book[] = [
-  {
-    title: "The Awakening",
-  },
-  {
-    title: "City of Glass",
-  },
-];
+const bookService = new BookService();
 
 const resolvers: Resolvers = {
   Query: {
-    books: (_, args, context) => {
-      return books;
+    bookById: (_, { bookId }, context) => {
+      return bookService.findById(bookId);
     },
+    books: (_, __, context) => {
+      return bookService.findAll();
+    }
   },
 };
 export { resolvers };

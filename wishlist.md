@@ -1,3 +1,4 @@
-- linters
-- git hooks
-- Generating types from a GraphQL schema
+- response formatter
+- integration testing
+- loggers
+- linter
