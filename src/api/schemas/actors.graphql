@@ -1,10 +1,9 @@
 type Query {
-    actorById(actorId: ID!): Actor
-    actors: [Actor]
+  actorById(actorId: ID!): Actor
+  actors: [Actor]
 }
 
 type Actor {
-    id: ID!
-    name: String
+  id: ID!
+  name: String
 }
-

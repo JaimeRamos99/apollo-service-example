@@ -1,15 +1,14 @@
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
-import { GraphQLFileLoader } from '@graphql-tools/graphql-file-loader';
-import { loadSchemaSync } from '@graphql-tools/load';
-import { addMocksToSchema } from '@graphql-tools/mock';
-import { makeExecutableSchema } from '@graphql-tools/schema';
-import { mocks, CustomErrorExtentions } from './common'
+import { GraphQLFileLoader } from "@graphql-tools/graphql-file-loader";
+import { loadSchemaSync } from "@graphql-tools/load";
+import { addMocksToSchema } from "@graphql-tools/mock";
+import { makeExecutableSchema } from "@graphql-tools/schema";
+import { mocks, CustomErrorExtentions } from "./common";
 import resolvers from "./api/resolvers";
 import { GraphQLError } from "graphql";
 
-
-const typeDefs = loadSchemaSync('./src/api/schemas/*.graphql', {
+const typeDefs = loadSchemaSync("./src/api/schemas/*.graphql", {
   loaders: [new GraphQLFileLoader()],
 });
 
@@ -24,8 +23,8 @@ const server = new ApolloServer({
 (async () => {
   const { url } = await startStandaloneServer(server, {
     context: async ({ req }) => {
-      const brand_id = req.headers.brand_id;
-      const user = { brand_id };
+      const { brand_id, role } = req.headers;
+      const user = { brand_id, role };
       if (!brand_id) {
         throw new GraphQLError("No brand_id", {
           extensions: CustomErrorExtentions.MISSING_BRAND_ID,

@@ -1,5 +1,5 @@
 import { Resolvers } from "../../__generated__/resolvers-types";
-import BookService from '../../domain/book/service';
+import BookService from "../../domain/book/service";
 
 const bookService = new BookService();
 
@@ -10,7 +10,7 @@ const resolvers: Resolvers = {
     },
     books: (_, __, context) => {
       return bookService.findAll();
-    }
+    },
   },
 };
 export { resolvers };

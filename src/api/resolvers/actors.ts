@@ -1,5 +1,5 @@
 import { Resolvers } from "../../__generated__/resolvers-types";
-import ActorService from '../../domain/actor/service'
+import ActorService from "../../domain/actor/service";
 
 const actorService = new ActorService();
 
@@ -11,7 +11,7 @@ const resolvers: Resolvers = {
 
     actors: async (_, __, context) => {
       return await actorService.findAll();
-    }
+    },
   },
 };
 

@@ -22,6 +22,7 @@
     "@apollo/server": "^4.9.0",
     "@graphql-tools/graphql-file-loader": "^8.0.0",
     "@graphql-tools/load": "^8.0.0",
+    "@graphql-tools/resolvers-composition": "^7.0.0",
     "graphql": "^16.7.1",
     "lodash": "^4.17.21"
   },

@@ -1,2 +1,2 @@
-export * from './errors';
-export * from './mock-apollo-responses';
+export * from "./errors";
+export * from "./mock-apollo-responses";

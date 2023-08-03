@@ -1,4 +1,6 @@
+- resolver composition
 - response formatter
 - integration testing
 - loggers
 - linter
+- git hooks
