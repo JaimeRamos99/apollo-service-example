@@ -4,9 +4,8 @@ import { GraphQLFileLoader } from "@graphql-tools/graphql-file-loader";
 import { loadSchemaSync } from "@graphql-tools/load";
 import { addMocksToSchema } from "@graphql-tools/mock";
 import { makeExecutableSchema } from "@graphql-tools/schema";
-import { mocks, CustomErrorExtentions } from "./common";
+import { mocks, createGraphQLError, ErrorCodes } from "./common";
 import resolvers from "./api/resolvers";
-import { GraphQLError } from "graphql";
 
 const typeDefs = loadSchemaSync("./src/api/schemas/*.graphql", {
   loaders: [new GraphQLFileLoader()],
@@ -26,9 +25,7 @@ const server = new ApolloServer({
       const { brand_id, role } = req.headers;
       const user = { brand_id, role };
       if (!brand_id) {
-        throw new GraphQLError("No brand_id", {
-          extensions: CustomErrorExtentions.MISSING_BRAND_ID,
-        });
+        throw createGraphQLError(ErrorCodes.MISSING_BRAND_ID);
       }
       return { user };
     },
