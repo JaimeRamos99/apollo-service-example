@@ -16,6 +16,7 @@
 
 - Composite resolvers, are resolver-scoped middlewares
 
+- Graphql schema types are automatically updated in each restart, even in watch mode
 ## Links
 
 ### https://tsh.io/blog/how-to-speed-up-your-typescript-project/

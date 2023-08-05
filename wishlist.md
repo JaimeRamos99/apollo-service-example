@@ -1,5 +1,4 @@
-- resolver composition
-- response formatter
+- response formatter (interceptor)
 - integration testing
 - loggers
 - linter
