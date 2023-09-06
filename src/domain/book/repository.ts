@@ -1,5 +1,4 @@
 import { Book } from "../../__generated__/resolvers-types";
-import { Repository } from "../../types";
 
 const books: Book[] = [
   {
@@ -12,28 +11,12 @@ const books: Book[] = [
   },
 ];
 
-export default class BookRepository implements Repository<Book> {
+export default class BookRepository {
   findById(id: string): Promise<Book | null> {
     return Promise.resolve(books.find((book) => book.id === id));
   }
 
   findAll(): Promise<Book[]> {
     return Promise.resolve(books);
-  }
-
-  create(entity: Partial<Book>): Promise<Book> {
-    return null;
-  }
-
-  update(id: string, entity: Partial<Book>): Promise<Book | null> {
-    return null;
-  }
-
-  delete(id: string): Promise<boolean> {
-    return null;
-  }
-
-  findOneByName(name: string): Promise<Book | null> {
-    return null;
   }
 }
